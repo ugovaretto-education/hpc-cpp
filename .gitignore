@@ -1,0 +1,8 @@
+tmp*
+.DS_Store
+.vscode
+*.out
+*.so
+~*
+*.o
+build

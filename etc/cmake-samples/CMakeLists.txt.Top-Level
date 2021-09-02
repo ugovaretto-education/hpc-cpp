@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.1...3.20)
+
+if(${CMAKE_VERSION} VERSION_LESS 3.16)
+    cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
+else()
+    cmake_policy(VERSION 3.16)
+endif()
+project(exascale VERSION 1.0
+                 DESCRIPTION "HPC scratchpad"
+                 LANGUAGES CXX)
+#packages
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
+# Separate debug-release paths
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/bin/debug)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/bin/release)
+
+add_executable(clockgran clockgran.cpp)
+add_subdirectory(cs598)
+# set_property(TARGET cache
+#              PROPERTY CXX_STANDARD 20)   
+# target_link_libraries(cache PRIVATE Threads::Threads)     
