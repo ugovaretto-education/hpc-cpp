@@ -45,6 +45,7 @@
 
 #include <memory>
 #include <type_traits>
+#include <limits>
 
 template <typename T>
 struct BaseAllocator {
